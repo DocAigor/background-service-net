@@ -1,8 +1,6 @@
-﻿namespace FinancialServices
-{
-    public interface IDogApiMapper
-    {
-        string DecodeApi(string apiresult);
-    }
+﻿namespace DogServices;
 
+public interface IDogApiMapper
+{
+    string DecodeApi(string apiresult);
 }

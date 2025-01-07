@@ -1,7 +1,6 @@
-﻿namespace FinancialServices
+﻿namespace DogServices;
+
+public interface IWriter
 {
-    public interface IWriter
-    {
-        void Write(string source, string line);
-    }
+    void Write(string source, string line);
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace FinancialServices
+namespace DogServices;
+
+public interface IDataRetriever
 {
-    public interface IDataRetriever
-    {
-        IEnumerable<string> Retrieve(string source);
-    }
+    IEnumerable<string> Retrieve(string source);
 }

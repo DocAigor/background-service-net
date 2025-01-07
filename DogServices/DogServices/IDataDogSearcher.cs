@@ -1,4 +1,3 @@
-﻿namespace FinancialServices
-{
-    public interface IDataDogSearcher : ISearcher, IDataRetriever { }
-}
+﻿namespace DogServices;
+
+public interface IDataDogSearcher : ISearcher, IDataRetriever { }

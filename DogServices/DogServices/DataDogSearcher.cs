@@ -2,18 +2,12 @@
 using System.IO;
 using System.Linq;
 
-namespace FinancialServices
+namespace DogServices;
+public class DataDogSearcher : IDataDogSearcher
 {
-    public class DataDogSearcher : IDataDogSearcher
-    {
-        public IEnumerable<string> Retrieve(string source)
-        {
-            if(File.Exists(source))
-                return File.ReadAllLines(source).ToList();
-            return Enumerable.Empty<string>();
-        }
+    public IEnumerable<string> Retrieve(string source) =>
+        File.Exists(source) ? File.ReadLines(source) : Enumerable.Empty<string>();
 
-        public bool Search(IEnumerable<string> dogList, string dogUrl) => 
-            dogList.Any(x => x == dogUrl);
-    }
+
+    public bool Search(IEnumerable<string> dogList, string dogUrl) => dogList.Contains(dogUrl);
 }

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace FinancialServices
+namespace DogServices;
+
+public interface ISearcher
 {
-    public interface ISearcher
-    {
-        bool Search(IEnumerable<string> dogList, string dogUrl);
-    }
+    bool Search(IEnumerable<string> dogList, string dogUrl);
 }

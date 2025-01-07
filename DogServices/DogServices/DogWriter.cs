@@ -1,23 +1,19 @@
 ﻿using System;
 using System.IO;
 
-namespace FinancialServices
+namespace DogServices;
+
+public class DogWriter : IWriter
 {
-    public class DogWriter : IWriter
+    public void Write(string source, string line)
     {
-        public void Write(string source, string line)
+        try
         {
-
-            try
-            {
-                File.AppendAllText(source, $"{line}{Environment.NewLine}");
-            }
-            catch (System.Exception)
-            {
-
-                throw new Exception("Impossibile scrivere il file.");
-            }
+            File.AppendAllText(source, $"{line}{Environment.NewLine}");
         }
-            
+        catch (IOException ex)
+        {
+            throw new InvalidOperationException("Unable to write to the file.", ex);
+        }
     }
 }

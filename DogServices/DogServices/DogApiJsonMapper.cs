@@ -1,19 +1,14 @@
 ﻿using Newtonsoft.Json;
 
-namespace FinancialServices
+namespace DogServices;
+public class DogApiJsonMapper : IDogApiMapper
 {
-    public class DogApiJsonMapper : IDogApiMapper
+    internal record DataDog
     {
-        internal class DataDog
-        {
-            public string message { get; set; }
-            public string status { get; set; }
-        }
-        public string DecodeApi(string apiresult)
-        {
-            var dog = JsonConvert.DeserializeObject<DataDog>(apiresult);
-            return dog.message;
-        }
+        public string Message { get; init; }
+        public string Status { get; init; }
     }
+
+    public string DecodeApi(string apiresult) => JsonConvert.DeserializeObject<DataDog>(apiresult)?.Message;
 
 }
